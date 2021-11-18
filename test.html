@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Maker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+
+        var myHeaders = new Headers();
+
+        var myInit = {
+            method: 'GET',
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default'
+        };
+
+        var myRequest = new Request('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=NEO',myInit);
+
+fetch(myRequest,myInit)
+                .then(function(response)
+                {
+                    return response.json()
+                    //response.body.getReader().read().then(({ done, value }) => {
+                       // console.log(value);
+                  //   })
+                  //  console.log(response.blob())
+                }).then(function(data){
+                    console.log(data.NEO);
+                });
+    </script>
+</head>
+
+<body>
+   
+</body>
+
+</html>
